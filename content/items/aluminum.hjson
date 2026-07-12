@@ -1,0 +1,10 @@
+{
+  "name": "Aluminum",
+  "description": "A common metal.",
+  "color": "#B0B0B0",
+  "cost": 1,
+  "flammability": 0,
+  "explosiveness": 0,
+  "radioactivity": 0,
+  "charge": 0
+}

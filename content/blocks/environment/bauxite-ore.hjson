@@ -1,0 +1,8 @@
+{
+  "type": "OreBlock",
+  "itemDrop": "bauxite",
+  "variants": 3,
+  "oreDefault": true,
+  "oreScale": 28.380953,
+  "oreThreshold": 0.882
+}

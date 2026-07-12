@@ -1,0 +1,11 @@
+{
+  "name": "Iron",
+  "description": "A common metal.",
+  "color": "#9e9e9e",
+  "hardness": 3,
+  "cost": 1,
+  "flammability": 0,
+  "explosiveness": 0,
+  "radioactivity": 0,
+  "charge": 0
+}

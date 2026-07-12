@@ -1,0 +1,22 @@
+{
+  "type": "GenericCrafter",
+  "name": "Aluminum Electrolysis Cell",
+  "description": "A machine that uses electricity to extract aluminum from bauxite.",
+  "category": "crafting",
+  "health": 300,
+  "size": 2,
+  "itemCapacity": 20,
+  "craftTime": 40,
+  "hasItems": true,
+  "hasPower": true,
+  "consumes": {
+    "power": 2,
+    "items": [
+      "bauxite/2"
+    ]
+  },
+  "outputItem": "aluminum/1",
+  "requirements": [
+    "iron/100"
+  ]
+}
