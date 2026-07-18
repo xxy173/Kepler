@@ -1,0 +1,10 @@
+{
+  "name": "Steel",
+  "description": "A strong metal.",
+  "color": "#525252",
+  "cost": 2,
+  "flammability": 0,
+  "explosiveness": 0,
+  "radioactivity": 0,
+  "charge": 0
+}
