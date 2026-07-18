@@ -1,7 +1,7 @@
 {
   "name": "Aluminum",
   "description": "A common metal.",
-  "color": "#B0B0B0",
+  "color": "#c3c4c7",
   "cost": 1,
   "flammability": 0,
   "explosiveness": 0,

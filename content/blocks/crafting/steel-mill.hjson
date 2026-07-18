@@ -4,7 +4,7 @@
   "hasLiquids": true,
   "hasPower": true,
   "itemCapacity": 20,
-  "liquidCapacity": 20,
+  "liquidCapacity": 50,
   "size": 3,
   "health": 200,
   "requirements": [

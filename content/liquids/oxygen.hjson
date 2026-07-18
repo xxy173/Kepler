@@ -1,0 +1,11 @@
+{
+  "name": "Oxygen",
+  "description": "A gas that promotes combustion.",
+  "color": "#c1efff",
+  "gas": true,
+  "explosiveness": 0,
+  "flammability": 0,
+  "heatCapacity": 0.5,
+  "viscosity": 0.5,
+  "temperature": 0.5
+}

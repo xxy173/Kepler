@@ -1,33 +1,75 @@
 const steelMill = extend(GenericCrafter, "steel-mill", {
-    init(){
+    init() {
+        this.mediumMultiplier = 2;
+        this.mediumUsePerTick = 0.05;
         const steel = Vars.content.getByName(ContentType.item, "kepler-steel");
         const iron = Vars.content.getByName(ContentType.item, "kepler-iron");
 
         this.consumeItems(
             ItemStack.with(
-                iron, 1,
+                iron, 3,
                 Items.coal, 1
             )
         );
-        this.consumePower(1);
-        this.craftTime = 60;
-        this.outputItem = new ItemStack(steel, 1);
+        /*        
+                上のは
+                this.consumeItems(
+                    new ItemStack(iron, 3),
+                    new ItemStack(Items.coal, 1)
+                 );
+                 と同じ
+        */
 
+        this.consumePower(1);
+        this.craftTime = 90;
+        this.outputItem = new ItemStack(steel, 3);
         this.super$init();
+    },
+
+    setBars() {
+        this.super$setBars();
+        this.removeBar("liquid");
+        const oxygen = Vars.content.getByName(ContentType.liquid, "kepler-oxygen");
+
+        this.addBar("oxygen", build => new Bar(
+            "Oxygen",
+            oxygen.color,
+            () => build.liquids.get(oxygen) / this.liquidCapacity
+        )
+
+        );
+        this.addBar("craftSpeed", build => new Bar(
+            prov(() => {
+                const oxygenMultiplier = build.liquids.get(oxygen) > 0 ? this.mediumMultiplier : 1;
+                const baseSpeed = this.outputItem.amount * 60 / this.craftTime;
+                const speed = baseSpeed * oxygenMultiplier * build.efficiency * build.timeScale;
+                return "Craft Speed: " + speed.toFixed(2) + "/s";
+            }),
+            prov(() => Pal.ammo),
+            floatp(() => build.efficiency)
+        )
+        );
     }
 });
 
 steelMill.buildType = () => extend(GenericCrafter.GenericCrafterBuild, steelMill, {
-    getProgressIncrease(baseTime){
-        const hasWater = this.liquids.get(liquids.water) > 0;
-        return this.super$getProgressIncrease(baseTime) * (hasWater ? 2 : 1);
+    acceptLiquid(source, liquid) {
+        const oxygen = Vars.content.getByName(ContentType.liquid, "kepler-oxygen");
+        return liquid === oxygen;
     },
-    updateTile(){
+
+    getProgressIncrease(baseTime) {
+        const oxygen = Vars.content.getByName(ContentType.liquid, "kepler-oxygen");
+        const hasOxygen = this.liquids.get(oxygen) > 0;
+        return this.super$getProgressIncrease(baseTime) * (hasOxygen ? steelMill.mediumMultiplier : 1);
+    },
+
+    updateTile() {
+        const oxygen = Vars.content.getByName(ContentType.liquid, "kepler-oxygen");
         this.super$updateTile();
-        const water = this.liquids.get(liquids.water);
-        if(water > 0 && this.efficiency > 0){
-            this.liquids.remove(liquids.water, Math.min(water, 0.1))
+        const oxygenAmount = this.liquids.get(oxygen);
+        if (oxygenAmount > 0 && this.efficiency > 0) {
+            this.liquids.remove(oxygen, Math.min(oxygenAmount, (this.mediumUsePerTick * this.edelta())));
         }
     }
 });
-

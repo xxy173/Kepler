@@ -1,7 +1,7 @@
 {
   "name": "Bauxite",
   "description": "Used to make aluminum.",
-  "color": "#DE582F",
+  "color": "#de612f",
   "hardness": 1,
   "cost": 1,
   "flammability": 0,
