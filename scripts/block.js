@@ -4,6 +4,7 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
         this.mediumUsePerTick = 0.05;
         const steel = Vars.content.getByName(ContentType.item, "kepler-steel");
         const iron = Vars.content.getByName(ContentType.item, "kepler-iron");
+        const oxygen = Vars.content.getByName(ContentType.liquid, "kepler-oxygen");
 
         this.consumeItems(
             ItemStack.with(
@@ -49,6 +50,9 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
             floatp(() => build.efficiency)
         )
         );
+
+        const oxygenUse = 0.05;
+        steelMill.multiplier = 2;
     }
 });
 
@@ -63,13 +67,4 @@ steelMill.buildType = () => extend(GenericCrafter.GenericCrafterBuild, steelMill
         const hasOxygen = this.liquids.get(oxygen) > 0;
         return this.super$getProgressIncrease(baseTime) * (hasOxygen ? steelMill.mediumMultiplier : 1);
     },
-
-    updateTile() {
-        const oxygen = Vars.content.getByName(ContentType.liquid, "kepler-oxygen");
-        this.super$updateTile();
-        const oxygenAmount = this.liquids.get(oxygen);
-        if (oxygenAmount > 0 && this.efficiency > 0) {
-            this.liquids.remove(oxygen, Math.min(oxygenAmount, (steelMill.mediumUsePerTick * this.edelta())));
-        }
-    }
 });
