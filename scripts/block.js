@@ -31,16 +31,7 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
 
     setBars() {
         this.super$setBars();
-        this.removeBar("liquid");
         const oxygen = Vars.content.getByName(ContentType.liquid, "kepler-oxygen");
-
-        this.addBar("oxygen", build => new Bar(
-            "Oxygen",
-            oxygen.color,
-            () => build.liquids.get(oxygen) / this.liquidCapacity
-        )
-
-        );
         this.addBar("craftSpeed", build => new Bar(
             prov(() => {
                 const oxygenMultiplier = build.liquids.get(oxygen) > 0 ? this.mediumMultiplier : 1;
@@ -56,11 +47,6 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
 });
 
 steelMill.buildType = () => extend(GenericCrafter.GenericCrafterBuild, steelMill, {
-    acceptLiquid(source, liquid) {
-        const oxygen = Vars.content.getByName(ContentType.liquid, "kepler-oxygen");
-        return liquid === oxygen;
-    },
-
     getProgressIncrease(baseTime) {
         const oxygen = Vars.content.getByName(ContentType.liquid, "kepler-oxygen");
         const hasOxygen = this.liquids.get(oxygen) > 0;
