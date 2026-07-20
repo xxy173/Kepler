@@ -45,11 +45,3 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
         );
     }
 });
-
-steelMill.buildType = () => extend(GenericCrafter.GenericCrafterBuild, steelMill, {
-    getProgressIncrease(baseTime) {
-        const oxygen = Vars.content.getByName(ContentType.liquid, "kepler-oxygen");
-        const hasOxygen = this.liquids.get(oxygen) > 0;
-        return this.super$getProgressIncrease(baseTime) * (hasOxygen ? steelMill.mediumMultiplier : 1);
-    },
-});
