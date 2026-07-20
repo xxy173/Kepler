@@ -20,11 +20,10 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
                  );
                  と同じ
         */
-
+       
         this.consumePower(1);
         this.craftTime = 90;
         this.outputItem = new ItemStack(steel, 3);
-        steelMill.multiplier = 2;
         steelMill.consumeLiquid(oxygen, this.mediumUsePerTick).boost();
         this.super$init();
     },
@@ -44,4 +43,12 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
         )
         );
     }
+});
+
+steelMill.buildType = () => extend(GenericCrafter.GenericCrafterBuild, steelMill, {
+    getProgressIncrease(baseTime) {
+        const oxygen = Vars.content.getByName(ContentType.liquid, "kepler-oxygen");
+        const hasOxygen = this.liquids.get(oxygen) > 0;
+        return this.super$getProgressIncrease(baseTime) * (hasOxygen ? steelMill.mediumMultiplier : 1);
+    },
 });
