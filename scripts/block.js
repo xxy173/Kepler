@@ -24,6 +24,8 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
         this.consumePower(1);
         this.craftTime = 90;
         this.outputItem = new ItemStack(steel, 3);
+        steelMill.multiplier = 2;
+        steelMill.consumeLiquid(oxygen, this.mediumUsePerTick).boost();
         this.super$init();
     },
 
@@ -50,9 +52,6 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
             floatp(() => build.efficiency)
         )
         );
-
-        const oxygenUse = 0.05;
-        steelMill.multiplier = 2;
     }
 });
 
