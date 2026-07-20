@@ -69,7 +69,7 @@ steelMill.buildType = () => extend(GenericCrafter.GenericCrafterBuild, steelMill
         this.super$updateTile();
         const oxygenAmount = this.liquids.get(oxygen);
         if (oxygenAmount > 0 && this.efficiency > 0) {
-            this.liquids.remove(oxygen, Math.min(oxygenAmount, (this.mediumUsePerTick * this.edelta())));
+            this.liquids.remove(oxygen, Math.min(oxygenAmount, (steelMill.mediumUsePerTick * this.edelta())));
         }
     }
 });
