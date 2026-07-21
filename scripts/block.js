@@ -1,10 +1,8 @@
-Events.on(ContentInitEvent, event => {
-    const kepler = require("kepler");
-    print(kepler.iron);
-});
+const kepler = require("kepler");
 
 const steelMill = extend(GenericCrafter, "steel-mill", {
     init() {
+        print(kepler.iron)
         this.mediumMultiplier = 2;
         this.mediumUsePerTick = 0.05;
         const steel = Vars.content.getByName(ContentType.item, "kepler-steel");
