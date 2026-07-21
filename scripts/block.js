@@ -2,7 +2,7 @@ const kepler = require("kepler");
 
 const steelMill = extend(GenericCrafter, "steel-mill", {
     init() {
-        print(kepler.iron)
+        print(kepler.iron.name)
         this.mediumMultiplier = 2;
         this.mediumUsePerTick = 0.05;
         const steel = Vars.content.getByName(ContentType.item, "kepler-steel");
