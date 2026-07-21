@@ -1,4 +1,4 @@
-const iron = Vars.content.getByName(contentType.item, "kepler-iron");
+const iron = Vars.content.getByName(ContentType.item, "kepler-iron");
 const steel = Vars.content.getByName(ContentType.item, "kepler-steel");
 const oxygen = Vars.content.getByName(ContentType.liquid, "kepler-oxygen");
 
