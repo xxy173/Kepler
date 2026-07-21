@@ -9,7 +9,7 @@ function oxygen() {
 };
 
 module.exports = {
-    iron: iron(),
-    steel: steel(),
-    oxygen: oxygen()
+    iron: iron,
+    steel: steel,
+    oxygen: oxygen
 }
