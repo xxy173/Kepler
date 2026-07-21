@@ -1,5 +1,7 @@
-const kepler = require("kepler");
-print(kepler.iron)
+Events.on(ContentInitEvent, event => {
+    const kepler = require("kepler");
+    print(kepler.iron);
+});
 
 const steelMill = extend(GenericCrafter, "steel-mill", {
     init() {
@@ -23,7 +25,7 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
                  );
                  と同じ
         */
-       
+
         this.consumePower(1);
         this.craftTime = 90;
         this.outputItem = new ItemStack(steel, 3);
@@ -43,8 +45,7 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
             }),
             prov(() => Pal.ammo),
             floatp(() => build.efficiency)
-        )
-        );
+        ));
     }
 });
 
@@ -54,4 +55,4 @@ steelMill.buildType = () => extend(GenericCrafter.GenericCrafterBuild, steelMill
         const hasOxygen = this.liquids.get(oxygen) > 0;
         return this.super$getProgressIncrease(baseTime) * (hasOxygen ? steelMill.mediumMultiplier : 1);
     },
-});
+})
