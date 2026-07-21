@@ -1,3 +1,6 @@
+kepler = require("kepler");
+print(kepler.iron)
+
 const steelMill = extend(GenericCrafter, "steel-mill", {
     init() {
         this.mediumMultiplier = 2;
