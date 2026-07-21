@@ -1,4 +1,5 @@
-const kepler = require("kepler");
+const setUp = require("setUp");
+const kepler = setUp.contents;
 
 const steelMill = extend(GenericCrafter, "steel-mill", {
     init() {
