@@ -1,4 +1,4 @@
-kepler = require("kepler");
+const kepler = require("kepler");
 print(kepler.iron)
 
 const steelMill = extend(GenericCrafter, "steel-mill", {
@@ -27,7 +27,7 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
         this.consumePower(1);
         this.craftTime = 90;
         this.outputItem = new ItemStack(steel, 3);
-        steelMill.consumeLiquid(oxygen, this.mediumUsePerTick).boost();
+        this.consumeLiquid(oxygen, this.mediumUsePerTick).boost();
         this.super$init();
     },
 
