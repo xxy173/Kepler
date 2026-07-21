@@ -45,7 +45,7 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
 
     setStats() {
         this.super$setStats();
-        this.stats.add(Stas.booster, StatValues.string(this.mediumMultiplier + "x speed"));
+        this.stats.add(Stat.booster, StatValues.string(this.mediumMultiplier + "x speed"));
     }
 });
 
