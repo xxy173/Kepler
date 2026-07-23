@@ -1,4 +1,14 @@
 {
+  "category": "crafting",
+  "hasLiquids": true,
+  "hasPower": true,
+  "liquidCapacity": 50,
+  "size": 3,
+  "health": 200,
+  "requirements": [
+    "aluminum/100",
+    "iron/200"
+  ],
   "outputLiquids": [
     {
       "liquid": "ozone",
@@ -6,7 +16,7 @@
     },
     {
       "liquid": "hydrogen",
-      "liquid": "hydrogen"
+      "amount": 0.1
     }
   ]
 }
