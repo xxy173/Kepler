@@ -1,0 +1,12 @@
+{
+  "outputLiquids": [
+    {
+      "liquid": "ozone",
+      "amount": 0.1
+    },
+    {
+      "liquid": "hydrogen",
+      "liquid": "hydrogen"
+    }
+  ]
+}

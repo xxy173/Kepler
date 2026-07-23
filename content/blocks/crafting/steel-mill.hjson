@@ -1,6 +1,6 @@
 {
+  "name": "Steel Mill",
   "category": "crafting",
-  "name": "Steel Mill"
   "hasItems": true,
   "hasLiquids": true,
   "hasPower": true,
@@ -9,7 +9,7 @@
   "size": 3,
   "health": 200,
   "requirements": [
-    "copper/20",
-    "lead/15"
+    "aluminum/100",
+    "iron/200"
   ]
 }
