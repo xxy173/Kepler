@@ -1,5 +1,6 @@
 {
   "category": "crafting",
+  "name": "Steel Mill"
   "hasItems": true,
   "hasLiquids": true,
   "hasPower": true,
