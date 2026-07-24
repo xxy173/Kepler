@@ -58,20 +58,17 @@ steelMill.buildType = () => extend(GenericCrafter.GenericCrafterBuild, steelMill
 })
 
 
-const factory = extend(GenericCrafter, "custom-liquid-factory", {});
+const customLiquidFactory = extend(GenericCrafter, "custom-liquid-factory", {});
 
 // 設定値をマルチプレイでも同期させる
-factory.config(java.lang.Integer, (build, value) => {
+customLiquidFactory.config(java.lang.Integer, (build, value) => {
     build.liquidDirections = value.intValue();
 });
 
-factory.configurable = true;
-factory.saveConfig = true;
+customLiquidFactory.configurable = true;
+customLiquidFactory.saveConfig = true;
 
-factory.buildType = () => extend(
-    GenericCrafter.GenericCrafterBuild,
-    factory,
-    {
+customLiquidFactory.buildType = () => extend(GenericCrafter.GenericCrafterBuild,customLiquidFactory,{
         liquidDirections: 0,
 
         // 各液体の方向を2ビットずつ保存する
@@ -112,13 +109,10 @@ factory.buildType = () => extend(
 
                 table.image(liquid.uiIcon).size(32);
                 table.label(() =>
-                    liquid.localizedName + ": " +
-                    names[this.getLiquidDirection(i)]
-                ).width(140);
+                    liquid.localizedName + ": " + names[this.getLiquidDirection(i)]).width(140);
 
                 table.button("変更", () => {
-                    const next =
-                        (this.getLiquidDirection(i) + 1) % 4;
+                    const next = (this.getLiquidDirection(i) + 1) % 4;
 
                     this.setLiquidDirection(i, next);
                 }).size(70, 40);
