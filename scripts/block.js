@@ -1,12 +1,12 @@
 const kepler = require("kepler")
-Events.on(ContentInitEvent, event => {
-    kepler.load();
-});
 
 print(kepler.iron)
 
 const steelMill = extend(GenericCrafter, "steel-mill", {
     init() {
+
+        kepler.load();
+
         this.mediumMultiplier = 2;
         this.mediumUsePerTick = 0.05;
         print(kepler.iron)
@@ -60,7 +60,7 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
 steelMill.buildType = () => extend(GenericCrafter.GenericCrafterBuild, steelMill, {
     getProgressIncrease(baseTime) {
         const oxygen = Vars.content.getByName(ContentType.liquid, "kepler-oxygen");
-        const hasOxygen = this.liquids.get(oxygen) > 0;
+        const hasOxygen = this.liquids.get(kepler.oxygen) > 0;
         return this.super$getProgressIncrease(baseTime) * (hasOxygen ? steelMill.mediumMultiplier : 1);
     },
 })
