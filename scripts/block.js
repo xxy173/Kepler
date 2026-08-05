@@ -31,7 +31,7 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
 
         this.consumePower(1);
         this.craftTime = 90;
-        this.outputItem = new ItemStack(steel, 3);
+        this.outputItem = new ItemStack(kepler.steel, 3);
         this.consumeLiquid(oxygen, this.mediumUsePerTick).boost();
         this.super$init();
     },
