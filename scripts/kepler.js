@@ -4,9 +4,9 @@ const kepler = {
     oxygen: null,
 
     load(){
-        this.iron = Vars.content.getByName(contentType.item, "kepler-iron")
-        this.steel = Vars.content.getByName(contentType.item, "kepler-steel")
-        this.oxygen = Vars.content.getByName(contentType.liquid, "kepler-oxygen")
+        this.iron = Vars.content.getByName(ContentType.item, "kepler-iron")
+        this.steel = Vars.content.getByName(ContentType.item, "kepler-steel")
+        this.oxygen = Vars.content.getByName(ContentType.liquid, "kepler-oxygen")
     }
 }
 
