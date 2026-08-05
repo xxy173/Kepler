@@ -9,14 +9,10 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
 
         this.mediumMultiplier = 2;
         this.mediumUsePerTick = 0.05;
-        print(kepler.iron)
-        const steel = Vars.content.getByName(ContentType.item, "kepler-steel");
-        const iron = Vars.content.getByName(ContentType.item, "kepler-iron");
-        const oxygen = Vars.content.getByName(ContentType.liquid, "kepler-oxygen");
 
         this.consumeItems(
             ItemStack.with(
-                iron, 3,
+                kepler.iron, 3,
                 Items.coal, 1
             )
         );
@@ -32,16 +28,15 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
         this.consumePower(1);
         this.craftTime = 90;
         this.outputItem = new ItemStack(kepler.steel, 3);
-        this.consumeLiquid(oxygen, this.mediumUsePerTick).boost();
+        this.consumeLiquid(kepler.oxygen, this.mediumUsePerTick).boost();
         this.super$init();
     },
 
     setBars() {
         this.super$setBars();
-        const oxygen = Vars.content.getByName(ContentType.liquid, "kepler-oxygen");
         this.addBar("craftSpeed", build => new Bar(
             prov(() => {
-                const oxygenMultiplier = build.liquids.get(oxygen) > 0 ? this.mediumMultiplier : 1;
+                const oxygenMultiplier = build.liquids.get(kepler.oxygen) > 0 ? this.mediumMultiplier : 1;
                 const baseSpeed = this.outputItem.amount * 60 / this.craftTime;
                 const speed = baseSpeed * oxygenMultiplier * build.efficiency * build.timeScale;
                 return "Craft Speed: " + speed.toFixed(2) + "/s";
@@ -59,7 +54,6 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
 
 steelMill.buildType = () => extend(GenericCrafter.GenericCrafterBuild, steelMill, {
     getProgressIncrease(baseTime) {
-        const oxygen = Vars.content.getByName(ContentType.liquid, "kepler-oxygen");
         const hasOxygen = this.liquids.get(kepler.oxygen) > 0;
         return this.super$getProgressIncrease(baseTime) * (hasOxygen ? steelMill.mediumMultiplier : 1);
     },
