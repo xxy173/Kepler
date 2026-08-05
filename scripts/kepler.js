@@ -11,7 +11,3 @@ const kepler = {
 }
 
 module.exports = kepler;
-/*
-今のところあんま使えない
-使うときは関数として呼ぶために最後に()をつける
-*/
