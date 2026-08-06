@@ -3,7 +3,7 @@
   "description": "A flammable gas.",
   "color": "#ffffff",
   "gas": true,
-  "explosiveness": 0,
+  "explosiveness": 1,
   "flammability": 1,
   "heatCapacity": 0.5,
   "viscosity": 0.5,
