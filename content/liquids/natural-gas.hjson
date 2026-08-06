@@ -4,7 +4,7 @@
   "color": "#ffffff",
   "gas": true,
   "explosiveness": 0.2,
-  "flammability": 1,
+  "flammability": 0.3,
   "heatCapacity": 0.5,
   "viscosity": 0.5,
   "temperature": 0.5
