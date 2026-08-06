@@ -2,7 +2,7 @@
   "name": "Steel",
   "description": "A strong metal.",
   "color": "#464646",
-  "cost": 2,
+  "cost": 1.2,
   "flammability": 0,
   "explosiveness": 0,
   "radioactivity": 0,

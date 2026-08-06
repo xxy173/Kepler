@@ -1,4 +1,6 @@
 //液体排出面をカスタマイズできる工場
+//customLiquidFactory.js
+
 const customLiquidFactory = extend(GenericCrafter, "custom-liquid-factory", {});
 
 // 設定値をマルチプレイでも同期させる
@@ -102,3 +104,28 @@ customLiquidFactory.buildType = () => extend(GenericCrafter.GenericCrafterBuild,
         this.liquidDirections = read.i();
     }
 });
+
+customLiquidFactory.hjson
+
+{
+  "category": "crafting",
+  "hasLiquids": true,
+  "hasPower": true,
+  "liquidCapacity": 50,
+  "size": 3,
+  "health": 200,
+  "requirements": [
+    "aluminum/100",
+    "iron/200"
+  ],
+  "outputLiquids": [
+    {
+      "liquid": "ozone",
+      "amount": 0.1
+    },
+    {
+      "liquid": "hydrogen",
+      "amount": 0.1
+    }
+  ]
+}

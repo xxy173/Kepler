@@ -1,0 +1,11 @@
+{
+  "name": "Gold",
+  "description": "A precious metal.",
+  "color": "#ffd900dc",
+  "hardness": 4,
+  "cost": 1,
+  "flammability": 0,
+  "explosiveness": 0,
+  "radioactivity": 0,
+  "charge": 0
+}

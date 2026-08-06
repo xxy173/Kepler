@@ -1,0 +1,11 @@
+{
+  "name": "Natural Gas",
+  "description": "A flammable gas.",
+  "color": "#ffffff",
+  "gas": true,
+  "explosiveness": 0,
+  "flammability": 1,
+  "heatCapacity": 0.5,
+  "viscosity": 0.5,
+  "temperature": 0.5
+}

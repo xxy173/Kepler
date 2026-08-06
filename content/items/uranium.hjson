@@ -1,0 +1,11 @@
+{
+  "name": "Uranium",
+  "description": "Used in nuclear power generation.",
+  "color": "#266d26",
+  "hardness": 4,
+  "cost": 1.5,
+  "flammability": 0,
+  "explosiveness": 0,
+  "radioactivity": 1,
+  "charge": 0
+}

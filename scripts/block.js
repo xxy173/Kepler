@@ -14,17 +14,10 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
                 Items.coal, 1
             )
         );
-        /*        
-                上のは
-                this.consumeItems(
-                    new ItemStack(iron, 3),
-                    new ItemStack(Items.coal, 1)
-                 );
-                 と同じ
-        */
 
         this.consumePower(1);
         this.consumeLiquid(kepler.oxygen, this.mediumUsePerTick).boost();
+        
         this.outputItem = new ItemStack(kepler.steel, 3);
 
         this.super$init();
