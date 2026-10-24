@@ -4,8 +4,8 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
     init() {
         kepler.load();
 
-        this.mediumMultiplier = 2;
-        this.mediumUsePerTick = 0.05;
+        this.boostMultiplier = 2;
+        this.boostUsePerTick = 0.05;
         this.craftTime = 90;
 
         this.consumeItems(
@@ -16,7 +16,7 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
         );
 
         this.consumePower(1);
-        this.consumeLiquid(kepler.oxygen, this.mediumUsePerTick).boost();
+        this.consumeLiquid(kepler.oxygen, this.boostUsePerTick).boost();
         
         this.outputItem = new ItemStack(kepler.steel, 3);
 
@@ -27,7 +27,7 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
         this.super$setBars();
         this.addBar("craftSpeed", build => new Bar(
             prov(() => {
-                const oxygenMultiplier = build.liquids.get(kepler.oxygen) > 0 ? this.mediumMultiplier : 1;
+                const oxygenMultiplier = build.liquids.get(kepler.oxygen) > 0 ? this.boostMultiplier : 1;
                 const baseSpeed = this.outputItem.amount * 60 / this.craftTime;
                 const speed = baseSpeed * oxygenMultiplier * build.efficiency * build.timeScale;
                 return "Craft Speed: " + speed.toFixed(2) + "/s";
@@ -39,13 +39,13 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
 
     setStats() {
         this.super$setStats();
-        this.stats.add(Stat.booster, StatValues.string("[accent]" + this.mediumMultiplier + "x[] speed"));
+        this.stats.add(Stat.booster, StatValues.string("[accent]" + this.boostMultiplier + "x[] speed"));
     }
 });
 
 steelMill.buildType = () => extend(GenericCrafter.GenericCrafterBuild, steelMill, {
     getProgressIncrease(baseTime) {
         const hasOxygen = this.liquids.get(kepler.oxygen) > 0;
-        return this.super$getProgressIncrease(baseTime) * (hasOxygen ? steelMill.mediumMultiplier : 1);
+        return this.super$getProgressIncrease(baseTime) * (hasOxygen ? steelMill.boostMultiplier : 1);
     },
 });
