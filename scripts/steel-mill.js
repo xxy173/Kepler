@@ -1,4 +1,5 @@
 const kepler = require("kepler")
+const fun = require("fun")
 
 const steelMill = extend(GenericCrafter, "steel-mill", {
     init() {
@@ -35,7 +36,10 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
             prov(() => Pal.ammo),
             floatp(() => build.efficiency)
         ));
+
+        fun.setBoostBar(kepler.oxygen, this.boostMultiplier, this.craftTime, this.outputItem.amount)
     },
+
 
     setStats() {
         this.super$setStats();
