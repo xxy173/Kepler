@@ -16,5 +16,5 @@ function setBoostBar(booster, boostMultiplier, craftTime, outputItemAmount) {
 //itemかliquidかでboosterの量の取得方法が違うかもしれない
 
 module.exports = {
-    setBoostBar
-}
+    setBoostBar: setBoostBar
+};
