@@ -17,4 +17,4 @@ function setBoostBar(booster, boostMultiplier, craftTime, outputItemAmount) {
 
 module.exports = {
     setBoostBar
-};
+}
