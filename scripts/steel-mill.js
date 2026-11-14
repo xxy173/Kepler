@@ -18,7 +18,7 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
 
         this.consumePower(1);
         this.consumeLiquid(kepler.oxygen, this.boostUsePerTick).boost();
-        
+
         this.outputItem = new ItemStack(kepler.steel, 3);
 
         this.super$init();
@@ -37,14 +37,14 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
             floatp(() => build.efficiency)
         ));
 
-        fun.setBoostBar(kepler.oxygen, this.boostMultiplier, this.craftTime, this.outputItem.amount)
+        fun.setBoostBar(this, kepler.oxygen, this.boostMultiplier, this.craftTime, this.outputItem.amount)
     },
 
 
     setStats() {
         this.super$setStats();
         this.stats.add(Stat.booster, StatValues.string("[accent]" + this.boostMultiplier + "x[] speed"));
-    }
+    },
 });
 
 steelMill.buildType = () => extend(GenericCrafter.GenericCrafterBuild, steelMill, {
