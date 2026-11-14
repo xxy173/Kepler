@@ -9,7 +9,7 @@ function setBoostBar(building, booster, boostMultiplier, craftTime, outputItemAm
         prov(() => Pal.ammo),
         floatp(() => build.efficiency)
     ))
-}
+};
 
 //itemかliquidかでboosterの量の取得方法が違うかもしれない
 //液体のみ対応するように変更
