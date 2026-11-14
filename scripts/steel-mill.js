@@ -27,16 +27,7 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
     setBars() {
         this.super$setBars();
 
-        this.addBar("craftSpeed", build => new Bar(
-            prov(() => {
-                const oxygenMultiplier = build.liquids.get(kepler.oxygen) > 0 ? this.boostMultiplier : 1;
-                const baseSpeed = this.outputItem.amount * 60 / this.craftTime;
-                const speed = baseSpeed * oxygenMultiplier * build.efficiency * build.timeScale;
-                return "Craft Speed: " + speed.toFixed(2) + "/s";
-            }),
-            prov(() => Pal.ammo),
-            floatp(() => build.efficiency)
-        ));
+        fun.setBoostBar(this, kepler.oxygen, this.boostMultiplier, this.craftTime, this.outputItem.amount)
     },
 
 
