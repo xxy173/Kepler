@@ -27,7 +27,7 @@ const steelMill = extend(GenericCrafter, "steel-mill", {
     setBars() {
         this.super$setBars();
 
-        fun.setBoostBar(this, kepler.oxygen, this.boostMultiplier, this.craftTime, this.outputItem.amount)
+        fun.setBoostBar(this, kepler.oxygen, this.boostMultiplier, this.craftTime, this.outputItem.amount);
     },
 
 

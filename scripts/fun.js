@@ -11,9 +11,6 @@ function setBoostBar(building, booster, boostMultiplier, craftTime, outputItemAm
     ))
 };
 
-//itemかliquidかでboosterの量の取得方法が違うかもしれない
-//液体のみ対応するように変更
-
 module.exports = {
     setBoostBar: setBoostBar
 };
